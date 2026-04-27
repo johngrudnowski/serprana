@@ -268,8 +268,8 @@
   .hero__tagline {
     font-family: var(--font-display);
     font-style: italic;
-    font-size: clamp(1.27rem, 1.84vw, 1.61rem);   /* +15% per Kate */
-    color: rgba(255, 255, 255, 0.92);
+    font-size: clamp(1.76rem, 2.64vw, 2.31rem);   /* +10% on top of previous */
+    color: rgba(255, 255, 255, 0.95);
     margin-bottom: 1.5rem;
     letter-spacing: 0.01em;
     text-shadow: 0 1px 10px rgba(0, 0, 0, 0.4);
@@ -284,6 +284,14 @@
     max-width: 32ch;
     color: #fff;
     text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+  }
+  .hero__signature {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(1.05rem, 1.4vw, 1.3rem);
+    color: rgba(255, 255, 255, 0.88);
+    margin-top: 1rem;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.4);
   }
   .hero__footer {
     position: absolute;
@@ -318,9 +326,10 @@
   }
   .hero__caption {
     font-family: var(--font-label);
-    font-size: 0.75rem;            /* 0.65 * 1.15 = 0.7475 */
-    letter-spacing: 0.3em;
+    font-size: 1rem;            /* substantially more present */
+    letter-spacing: 0.28em;
     text-transform: uppercase;
+    font-weight: 500;
   }
   @media (max-width: 700px) {
     .hero__footer { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
@@ -735,13 +744,22 @@
     padding: clamp(6rem, 14vh, 12rem) 0;
     text-align: center;
   }
+  .soil__attribution {
+    font-family: var(--font-label);
+    font-size: var(--size-label);
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--bronze);
+    font-weight: 500;
+    margin-bottom: 2.5rem;
+  }
   .soil__quote {
     font-family: var(--font-display);
     font-style: italic;
     font-size: clamp(1.575rem, 3.78vw, 3.15rem);   /* -10% */
     line-height: 1.25;
     color: var(--ink);
-    max-width: 22ch;
+    max-width: 28ch;
     margin: 0 auto;
   }
   .soil__sig {
@@ -842,6 +860,124 @@
   }
   .book__alt a { color: var(--cream); border-bottom: 1px solid rgba(239, 229, 210, 0.3); }
 
+  /* Stay Informed form */
+  .stay-form {
+    margin-top: clamp(4rem, 8vh, 6rem);
+    padding-top: clamp(3rem, 6vh, 4.5rem);
+    border-top: 1px solid rgba(239, 229, 210, 0.2);
+    text-align: left;
+  }
+  .stay-form__header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+  .stay-form__title {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+    color: var(--cream);
+    margin-bottom: 0.75rem;
+  }
+  .stay-form__intro {
+    color: rgba(239, 229, 210, 0.7);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 48ch;
+    margin: 0 auto;
+  }
+  .stay-form form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .stay-form .field--full { grid-column: 1 / -1; }
+  .stay-form label {
+    display: block;
+    font-family: var(--font-label);
+    font-size: 0.72rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: rgba(239, 229, 210, 0.7);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  .stay-form input,
+  .stay-form textarea {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid rgba(239, 229, 210, 0.3);
+    color: var(--cream);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    transition: border-color 0.2s ease;
+  }
+  .stay-form input:focus,
+  .stay-form textarea:focus {
+    outline: 0;
+    border-bottom-color: var(--cream);
+  }
+  .stay-form input::placeholder,
+  .stay-form textarea::placeholder {
+    color: rgba(239, 229, 210, 0.35);
+    font-style: italic;
+  }
+  .stay-form textarea {
+    resize: vertical;
+    min-height: 80px;
+    border-bottom: 1px solid rgba(239, 229, 210, 0.3);
+  }
+  .stay-form__submit {
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin-top: 1rem;
+    padding: 1rem 2.5rem;
+    background: transparent;
+    border: 1px solid rgba(239, 229, 210, 0.6);
+    color: var(--cream);
+    font-family: var(--font-label);
+    font-size: 0.78rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .stay-form__submit:hover {
+    background: var(--cream);
+    color: var(--sage-deep);
+    border-color: var(--cream);
+  }
+  .stay-form__success {
+    display: none;
+    text-align: center;
+    color: var(--cream);
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.1rem;
+  }
+  .stay-form.is-submitted form { display: none; }
+  .stay-form.is-submitted .stay-form__success { display: block; }
+  @media (max-width: 600px) {
+    .stay-form form { grid-template-columns: 1fr; }
+  }
+
+  /* Footer logo (item 1) */
+  .footer__logo {
+    display: flex;
+    justify-content: center;
+    padding: 0 0 2rem;
+  }
+  .footer__logo img {
+    width: 70px;
+    height: auto;
+    opacity: 0.85;
+  }
+
   /* Footer */
   .footer {
     background: var(--sage-deep);
@@ -913,12 +1049,12 @@
       Fertile soil doesn&rsquo;t make a seed grow.
       It creates the conditions where growth becomes inevitable.
     </h1>
+    <p class="hero__signature">This is who I AM. &nbsp;~ Kate</p>
   </div>
 
   <div class="hero__footer">
     <span class="hero__caption">Kate Edelstein &nbsp;&middot;&nbsp; Holistic Alchemist &nbsp;&middot;&nbsp; Nosara</span>
     <div class="hero__scroll" aria-hidden="true">
-      <span>Scroll</span>
       <span class="hero__scroll-line"></span>
     </div>
   </div>
@@ -1012,7 +1148,7 @@
           <span class="offering__duration">2 hours &middot; 1:1</span>
         </div>
         <div>
-          <h3 class="offering__title">Vibrational Alchemy Healing</h3>
+          <h3 class="offering__title">Vibrational Alchemy Clearing</h3>
           <div class="offering__body">
             <p>A deep, transformative energetic clearing that removes energetic density so your system feels lighter, clearer, and more elevated.</p>
             <p>Using sound, tuning forks, Alchemy energies, and my Alchemy Energy Clearing method, this session clears energetic blocks and distorted emotional charge that can influence how you feel, think, and respond. Rather than working with stories or analysis, the clearing happens directly at the energetic level, allowing your natural frequency to rise and your system to return to coherence.</p>
@@ -1024,16 +1160,16 @@
       <article class="offering reveal">
         <div class="offering__meta">
           <span class="label">Offering &middot; 03</span>
-          <span class="offering__duration">by arrangement</span>
+          <span class="offering__duration">by arrangement<br><em style="font-style: italic; font-size: 0.85em; color: var(--bronze);">message me to inquire</em></span>
         </div>
         <div>
           <h3 class="offering__title">Guided Medicine Journeys</h3>
           <div class="offering__body">
-            <p>Profound ceremonial experiences for deep energetic clearing, insight, and realignment.</p>
-            <p>These journeys include intention setting, energetic preparation, sound and vibrational medicine, and sacred Medicine (inquire to learn more), held in a grounded, intentional container. The work unfolds intuitively and may include access to the Akashic field, ancestral layers, or subconscious energetic imprints ready to be cleared.</p>
+            <p>Profound ceremonial experiences that include intention-setting, energetic preparation, channeling, and intuitive sound and vibrations, held in a grounded, intentional container.</p>
+            <p>This work may incorporate sacred medicines such as psilocybin and 5-MeO-DMT microdose. Each medicine carries a distinct frequency. Psilocybin often supports emotional opening, insight, and deep connection. A 5-MeO microdose can allow you to consciously navigate different states of your being. It can feel like integration of past experiences or a gentle letting go, as you move through layers with awareness, without losing control.</p>
             <p>Includes a follow-up integration session to anchor insights and support embodiment.</p>
           </div>
-          <span class="offering__ideal">Ideal for clarity, energetic liberation, meaningful internal shifts</span>
+          <span class="offering__ideal">Ideal for clarity, energetic liberation, meaningful internal shifts (and external)</span>
         </div>
       </article>
 
@@ -1261,15 +1397,16 @@
   </div>
 </section>
 
-<!-- SOIL MANIFESTO -->
+<!-- HEART QUOTE -->
 <section class="soil">
   <div class="container">
     <div class="reveal">
+      <p class="soil__attribution">A0354 &nbsp;:&nbsp; Primary Energy of the Heart</p>
       <p class="soil__quote">
-        Fertile soil doesn&rsquo;t make a seed grow. It creates the
-        conditions where growth becomes inevitable.
+        &ldquo;So that we can always bring energy and love to nourish the
+        hearts around us. The true nourishment is this energy that we bring
+        to one another.&rdquo;
       </p>
-      <p class="soil__sig">This is who I am.</p>
     </div>
   </div>
 </section>
@@ -1279,7 +1416,7 @@
   <div class="container">
     <div class="where__grid">
       <div class="reveal where__image">
-        <img src="assets/bougainvillea.jpg" alt="Kate holding a branch of white bougainvillea" />
+        <img src="assets/rooftop.jpg" alt="Kate playing crystal bowls at sunset" />
       </div>
       <div class="reveal reveal-stagger">
         <div class="section__eyebrow">
@@ -1354,11 +1491,58 @@
       Or by phone:
       <a href="tel:+50765652565">+507 6565&middot;2565</a>
     </p>
+
+    <!-- Stay Informed form -->
+    <div class="stay-form" id="stay-form">
+      <div class="stay-form__header">
+        <h3 class="stay-form__title">Want to Stay Informed?</h3>
+        <p class="stay-form__intro">A quiet note from time to time, when something is offered.</p>
+      </div>
+
+      <!--
+        FORM SETUP NOTES:
+        1. By default, this form opens the visitor's email client with the contents pre-filled (mailto fallback).
+        2. To enable real form submissions: sign up free at https://formspree.io,
+           replace YOUR_FORMSPREE_ID below with your endpoint ID, and remove the
+           class="mailto-fallback" attribute from the form tag.
+      -->
+      <form id="stayForm" class="mailto-fallback"
+            action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+            method="POST"
+            onsubmit="return handleStayForm(event)">
+        <div>
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" name="firstName" required placeholder="Your first name" />
+        </div>
+        <div>
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" name="lastName" required placeholder="Your last name" />
+        </div>
+        <div class="field--full">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="you@email.com" />
+        </div>
+        <div class="field--full">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" placeholder="Optional" />
+        </div>
+        <div class="field--full">
+          <label for="message">Message <span style="text-transform: none; letter-spacing: 0; font-style: italic; color: rgba(239,229,210,0.4); font-size: 0.7rem;">(optional)</span></label>
+          <textarea id="message" name="message" rows="3" placeholder="Anything you&rsquo;d like to share"></textarea>
+        </div>
+        <button type="submit" class="stay-form__submit">Send</button>
+      </form>
+
+      <p class="stay-form__success">Thank you. I&rsquo;ll be in touch.</p>
+    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer class="footer">
+  <div class="footer__logo">
+    <img src="assets/logo-white.png" alt="SERPRANA" />
+  </div>
   <div class="footer__inner">
     <span>Serprana &nbsp;&middot;&nbsp; Playa Pelada, Nosara</span>
     <span>
@@ -1417,6 +1601,44 @@
     pkg.setAttribute('data-open', isOpen ? 'false' : 'true');
     pkgBtn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
   });
+
+  // Stay Informed form
+  function handleStayForm(e) {
+    const form = e.target;
+    const wrapper = document.getElementById('stay-form');
+
+    // If form action still has the placeholder, fall back to mailto
+    if (form.action.includes('YOUR_FORMSPREE_ID')) {
+      e.preventDefault();
+      const data = new FormData(form);
+      const subject = encodeURIComponent('Website inquiry from ' + data.get('firstName') + ' ' + data.get('lastName'));
+      const body = encodeURIComponent(
+        'Name: ' + data.get('firstName') + ' ' + data.get('lastName') + '\n' +
+        'Email: ' + data.get('email') + '\n' +
+        'Phone: ' + (data.get('phone') || '(not provided)') + '\n\n' +
+        'Message:\n' + (data.get('message') || '(none)')
+      );
+      window.location.href = 'mailto:hello@serprana.com?subject=' + subject + '&body=' + body;
+      return false;
+    }
+
+    // Otherwise let Formspree handle it — submit via fetch so we can show inline success
+    e.preventDefault();
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then((res) => {
+      if (res.ok) {
+        wrapper.classList.add('is-submitted');
+      } else {
+        alert('Something went wrong. Please try again or message via WhatsApp.');
+      }
+    }).catch(() => {
+      alert('Something went wrong. Please try again or message via WhatsApp.');
+    });
+    return false;
+  }
 </script>
 
 </body>
